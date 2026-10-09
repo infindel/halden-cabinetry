@@ -9,8 +9,9 @@
 <link rel="preload" as="image" href="img/room-1-empty.webp" imagesrcset="img/room-1-empty-640.webp 640w, img/room-1-empty.webp 1024w" imagesizes="100vh" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500&display=swap" media="print" onload="this.media='all'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500&display=swap"></noscript>
+<link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/cormorantgaramond/v21/co3bmX5slCNuHLi8bLeY9MK7whWMhyjYqXtK.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500&display=swap">
 <style>
 :root{
   --bg:#efe9e1; --bg-2:#e4dccf; --ink:#1f1a16; --ink-2:#4f453d; --mute:#655950;
@@ -203,10 +204,10 @@ footer{padding:40px var(--gutter);display:flex;justify-content:space-between;gap
     <div class="room">
       <div class="bg" style="background-image:url(img/room-1-empty-640.webp)" aria-hidden="true"></div>
       <img class="base" src="img/room-1-empty.webp" srcset="img/room-1-empty-640.webp 640w, img/room-1-empty.webp 1024w" sizes="100vh" width="1024" height="1024" alt="An empty wardrobe room in New Orleans, warm plaster walls and white-oak floor, before the Halden system is installed" fetchpriority="high" decoding="async">
-      <img id="f2" src="img/room-2-frame.webp" srcset="img/room-2-frame-640.webp 640w, img/room-2-frame.webp 1024w" sizes="100vh" width="1024" height="1024" alt="The same room with the open bronze frame, rails and oak drawers installed" loading="lazy" decoding="async">
-      <img id="f3" src="img/room-3-done.webp" srcset="img/room-3-done-640.webp 640w, img/room-3-done.webp 1024w" sizes="100vh" width="1024" height="1024" alt="The back wall finished: lit rails, hung garments, oak drawers" loading="lazy" decoding="async">
-      <img id="f4" src="img/room-4-sides.webp" srcset="img/room-4-sides-640.webp 640w, img/room-4-sides.webp 1024w" sizes="100vh" width="1024" height="1024" alt="Matching wardrobe units added along both side walls, with shoes and folded knitwear" loading="lazy" decoding="async">
-      <img id="f5" src="img/room-5-full.webp" srcset="img/room-5-full-640.webp 640w, img/room-5-full.webp 1024w" sizes="100vh" width="1024" height="1024" alt="The complete dressing room: an oak island with a glass top, a round bronze mirror and a brass floor lamp" loading="lazy" decoding="async">
+      <img id="f2" fetchpriority="low" src="img/room-2-frame.webp" srcset="img/room-2-frame-640.webp 640w, img/room-2-frame.webp 1024w" sizes="100vh" width="1024" height="1024" alt="The same room with the open bronze frame, rails and oak drawers installed" loading="lazy" decoding="async">
+      <img id="f3" fetchpriority="low" src="img/room-3-done.webp" srcset="img/room-3-done-640.webp 640w, img/room-3-done.webp 1024w" sizes="100vh" width="1024" height="1024" alt="The back wall finished: lit rails, hung garments, oak drawers" loading="lazy" decoding="async">
+      <img id="f4" fetchpriority="low" src="img/room-4-sides.webp" srcset="img/room-4-sides-640.webp 640w, img/room-4-sides.webp 1024w" sizes="100vh" width="1024" height="1024" alt="Matching wardrobe units added along both side walls, with shoes and folded knitwear" loading="lazy" decoding="async">
+      <img id="f5" fetchpriority="low" src="img/room-5-full.webp" srcset="img/room-5-full-640.webp 640w, img/room-5-full.webp 1024w" sizes="100vh" width="1024" height="1024" alt="The complete dressing room: an oak island with a glass top, a round bronze mirror and a brass floor lamp" loading="lazy" decoding="async">
       <div class="glow" id="glow" aria-hidden="true"></div>
       <div class="veil" aria-hidden="true"></div>
     </div>
