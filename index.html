@@ -91,7 +91,8 @@ h1,h2,h3{font-family:var(--font-serif);font-weight:400;line-height:1.05;letter-s
 
 .captions{position:absolute;left:var(--gutter);bottom:clamp(28px,6vh,64px);max-width:380px;color:#1f1a16;z-index:3}
 .cap{position:absolute;left:0;bottom:0;opacity:0;transform:translateY(12px);transition:opacity .5s var(--ease-out),transform .5s var(--ease-out);background:rgba(239,233,225,.86);backdrop-filter:blur(10px);padding:18px 20px 20px;border-radius:4px;min-width:280px}
-.cap.on{opacity:1;transform:none}
+.cap{transition-duration:.22s,.22s}
+.cap.on{opacity:1;transform:none;transition-duration:.5s,.5s;transition-delay:.18s}
 .cap .n{font-family:var(--font-serif);font-size:13px;letter-spacing:.3em;color:var(--bronze);margin-bottom:8px}
 .cap h2{font-size:clamp(28px,3.6vw,44px);margin-bottom:8px}
 .cap p{color:#4f453d;font-size:15px;max-width:330px}
@@ -336,7 +337,7 @@ footer{padding:40px var(--gutter);display:flex;justify-content:space-between;gap
     f4.style.opacity=ease(seg(p,0.54,0.70));
     f5.style.opacity=ease(seg(p,0.74,0.90));
     glow.style.opacity=ease(seg(p,0.40,0.52))*0.8;
-    var step=p<0.08?0:p<0.30?1:p<0.50?2:p<0.70?3:p<0.90?4:5;
+    var step=p<0.08?0:p<0.22?1:p<0.42?2:p<0.62?3:p<0.82?4:5;
     caps.forEach(function(c){c.classList.toggle('on',+c.dataset.step===step);});
     bars.forEach(function(b,i){b.classList.toggle('on',i<step);});
   }
