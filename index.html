@@ -50,7 +50,7 @@ h1,h2,h3{font-family:var(--font-serif);font-weight:400;line-height:1.05;letter-s
 .nav.scrolled::before{opacity:1}
 .nav.on-dark::before{background:rgba(31,26,22,.86);border-bottom-color:rgba(239,233,225,.1)}
 .nav .brand{font-family:var(--font-serif);font-size:22px;letter-spacing:.32em;text-decoration:none;line-height:1}
-.nav .brand small{display:block;font-family:var(--font-sans);font-size:9px;letter-spacing:.3em;opacity:.75;margin-top:4px}
+.nav .brand small{display:block;font-family:var(--font-sans);font-size:10px;letter-spacing:.28em;margin-top:4px}
 .nav ul{display:flex;gap:34px;list-style:none}
 .nav ul a{font-size:11px;letter-spacing:.22em;text-transform:uppercase;text-decoration:none;position:relative}
 .nav ul a::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .4s var(--ease-out)}
@@ -68,9 +68,10 @@ h1,h2,h3{font-family:var(--font-serif);font-weight:400;line-height:1.05;letter-s
 @media (max-width:860px){.nav ul{display:none}.nav details{display:block}.nav .cta{display:none}}
 
 /* HERO + ROOM STAGE (photoreal frames crossfade as you scroll) */
-.stage{position:relative;height:380vh}
-@media (max-width:640px){.stage{height:300vh}}
+.stage{position:relative;height:520vh}
+@media (max-width:640px){.stage{height:420vh}}
 .stage .sticky{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:#d8cbb9}
+.stage .sticky::before{content:"";position:absolute;inset:0 0 auto 0;height:150px;background:linear-gradient(rgba(239,233,225,.92),rgba(239,233,225,.6) 55%,rgba(239,233,225,0));z-index:2;pointer-events:none}
 .room{position:absolute;inset:0}
 .room .bg{position:absolute;inset:-6%;background-size:cover;background-position:center;filter:blur(28px) saturate(1.05);transform:scale(1.1)}
 .room img{position:absolute;left:50%;top:50%;height:100%;width:auto;max-width:none;transform:translate(-50%,-50%);object-fit:cover;opacity:0;will-change:opacity;-webkit-mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent);mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent)}
@@ -79,16 +80,16 @@ h1,h2,h3{font-family:var(--font-serif);font-weight:400;line-height:1.05;letter-s
 .room .glow{position:absolute;left:50%;top:50%;width:min(100vh,100vw);aspect-ratio:1;transform:translate(-50%,-50%);background:radial-gradient(ellipse 36% 9% at 50% 31%,rgba(255,224,160,.65),transparent 70%);opacity:0;mix-blend-mode:screen;pointer-events:none}
 .room .veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(31,26,22,.08),rgba(31,26,22,0) 40%,rgba(31,26,22,.18) 100%);pointer-events:none}
 
-.hero-copy{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:0 var(--gutter);pointer-events:none}
-.hero-copy .in{pointer-events:auto;max-width:760px;padding-top:72px}
+.hero-copy{position:absolute;inset:0;z-index:3;display:grid;place-items:center;text-align:center;padding:0 var(--gutter);pointer-events:none}
+.hero-copy .in{pointer-events:auto;max-width:820px;padding:92px 40px 40px;background:radial-gradient(ellipse at 50% 55%,rgba(239,233,225,.82),rgba(239,233,225,.62) 50%,rgba(239,233,225,0) 74%)}
 .hero-copy h1{font-size:min(clamp(44px,8vw,112px),15vh);color:#1f1a16;margin:14px 0 18px;text-shadow:0 1px 0 rgba(255,255,255,.25)}
 .hero-copy p{color:#2e2721;max-width:520px;margin:0 auto 28px;font-size:15px}
-.hero-copy .eyebrow{color:#4a3f36}
-.hero-copy .scroll{margin-top:38px;font-size:11px;letter-spacing:.34em;text-transform:uppercase;color:#4a3f36}
-.hero-copy .scroll::after{content:"";display:block;width:1px;height:38px;margin:10px auto 0;background:linear-gradient(#4a3f36,transparent);animation:drop 1.8s var(--ease-std) infinite}
+.hero-copy .eyebrow{color:#2e2721}
+.hero-copy .scroll{margin-top:38px;font-size:11px;letter-spacing:.34em;text-transform:uppercase;color:#2e2721}
+.hero-copy .scroll::after{content:"";display:block;width:1px;height:38px;margin:10px auto 0;background:linear-gradient(#2e2721,transparent);animation:drop 1.8s var(--ease-std) infinite}
 @keyframes drop{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
 
-.captions{position:absolute;left:var(--gutter);bottom:clamp(28px,6vh,64px);max-width:380px;color:#1f1a16}
+.captions{position:absolute;left:var(--gutter);bottom:clamp(28px,6vh,64px);max-width:380px;color:#1f1a16;z-index:3}
 .cap{position:absolute;left:0;bottom:0;opacity:0;transform:translateY(12px);transition:opacity .5s var(--ease-out),transform .5s var(--ease-out);background:rgba(239,233,225,.86);backdrop-filter:blur(10px);padding:18px 20px 20px;border-radius:4px;min-width:280px}
 .cap.on{opacity:1;transform:none}
 .cap .n{font-family:var(--font-serif);font-size:13px;letter-spacing:.3em;color:var(--bronze);margin-bottom:8px}
@@ -200,7 +201,9 @@ footer{padding:40px var(--gutter);display:flex;justify-content:space-between;gap
       <div class="bg" style="background-image:url(img/room-1-empty-640.webp)" aria-hidden="true"></div>
       <img class="base" src="img/room-1-empty.webp" srcset="img/room-1-empty-640.webp 640w, img/room-1-empty.webp 1024w" sizes="100vh" width="1024" height="1024" alt="An empty wardrobe room in New Orleans, warm plaster walls and white-oak floor, before the Halden system is installed" fetchpriority="high" decoding="async">
       <img id="f2" src="img/room-2-frame.webp" srcset="img/room-2-frame-640.webp 640w, img/room-2-frame.webp 1024w" sizes="100vh" width="1024" height="1024" alt="The same room with the open bronze frame, rails and oak drawers installed" loading="lazy" decoding="async">
-      <img id="f3" src="img/room-3-done.webp" srcset="img/room-3-done-640.webp 640w, img/room-3-done.webp 1024w" sizes="100vh" width="1024" height="1024" alt="The finished wardrobe room: lit rails, hung garments, oak drawers" loading="lazy" decoding="async">
+      <img id="f3" src="img/room-3-done.webp" srcset="img/room-3-done-640.webp 640w, img/room-3-done.webp 1024w" sizes="100vh" width="1024" height="1024" alt="The back wall finished: lit rails, hung garments, oak drawers" loading="lazy" decoding="async">
+      <img id="f4" src="img/room-4-sides.webp" srcset="img/room-4-sides-640.webp 640w, img/room-4-sides.webp 1024w" sizes="100vh" width="1024" height="1024" alt="Matching wardrobe units added along both side walls, with shoes and folded knitwear" loading="lazy" decoding="async">
+      <img id="f5" src="img/room-5-full.webp" srcset="img/room-5-full-640.webp 640w, img/room-5-full.webp 1024w" sizes="100vh" width="1024" height="1024" alt="The complete dressing room: an oak island with a glass top, a round bronze mirror and a brass floor lamp" loading="lazy" decoding="async">
       <div class="glow" id="glow" aria-hidden="true"></div>
       <div class="veil" aria-hidden="true"></div>
     </div>
@@ -209,7 +212,7 @@ footer{padding:40px var(--gutter);display:flex;justify-content:space-between;gap
       <div class="in">
         <p class="eyebrow">Wardrobe rooms · New Orleans</p>
         <h1>Scroll to fill<br>the rails</h1>
-        <p>An open bronze frame, oak drawers and lit rails, built at the bench, carried in flat, and standing by the end of one day.</p>
+        <p>An open bronze frame, oak drawers and lit rails. Keep scrolling and watch the whole room get built, wall by wall, in one day.</p>
         <a class="btn solid" href="#book">Book a design visit</a>
         <div class="scroll">Scroll</div>
       </div>
@@ -218,9 +221,11 @@ footer{padding:40px var(--gutter);display:flex;justify-content:space-between;gap
     <div class="captions" aria-live="polite">
       <div class="cap" data-step="1"><div class="n">01 · THE ROOM</div><h2>We start with your wall.</h2><p>Measured to the sixteenth of an inch. The frame is built to the room, never the other way round.</p></div>
       <div class="cap" data-step="2"><div class="n">02 · THE FRAME</div><h2>Bronze, oak, open.</h2><p>A welded bronze frame, oak drawers on slow runners, rails sized to what you own. In place by noon.</p></div>
-      <div class="cap" data-step="3"><div class="n">03 · THE LIGHT</div><h2>Lit, and done by evening.</h2><p>Warm LED along every rail, switched by the door. Hang it up. You are finished.</p></div>
+      <div class="cap" data-step="3"><div class="n">03 · THE LIGHT</div><h2>Lit, and hung by noon.</h2><p>Warm LED along every rail, switched by the door. The back wall is finished before lunch.</p></div>
+      <div class="cap" data-step="4"><div class="n">04 · THE SIDES</div><h2>Then the side walls.</h2><p>The same frame turns the corner: shoe shelves, folded knitwear, a second rail. Nothing is a different system.</p></div>
+      <div class="cap" data-step="5"><div class="n">05 · THE ISLAND</div><h2>Standing by evening.</h2><p>An oak island with a glass top for watches and jewellery, a mirror, a lamp. Carried in flat at nine, finished by five.</p></div>
     </div>
-    <div class="progress" aria-hidden="true"><i></i><i></i><i></i></div>
+    <div class="progress" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
   </div>
 </div>
 
@@ -313,7 +318,7 @@ footer{padding:40px var(--gutter);display:flex;justify-content:space-between;gap
   var io = new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12,rootMargin:'0px 0px -8% 0px'});
   document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
 
-  var stage=document.getElementById('stage'), f2=document.getElementById('f2'), f3=document.getElementById('f3'), glow=document.getElementById('glow');
+  var stage=document.getElementById('stage'), f2=document.getElementById('f2'), f3=document.getElementById('f3'), f4=document.getElementById('f4'), f5=document.getElementById('f5'), glow=document.getElementById('glow');
   var hero=document.getElementById('heroCopy');
   var caps=[].slice.call(document.querySelectorAll('.cap'));
   var bars=[].slice.call(document.querySelectorAll('.progress i'));
@@ -323,18 +328,20 @@ footer{padding:40px var(--gutter);display:flex;justify-content:space-between;gap
   function ease(t){return 1-Math.pow(1-t,3);}
 
   function render(p){
-    /* 0.00-0.12 hero copy lifts away · 0.18-0.42 the frame appears · 0.52-0.76 clothes + light · 0.78-1 the rails glow */
-    var h=1-seg(p,0.02,0.12);
+    /* 0.00-0.10 hero copy lifts away · then five photoreal frames crossfade: frame · light+clothes · side walls · island */
+    var h=1-seg(p,0.02,0.10);
     hero.style.opacity=h; hero.style.transform='translateY('+((1-h)*-30)+'px)'; hero.style.pointerEvents=h<.2?'none':'';
-    f2.style.opacity=ease(seg(p,0.18,0.42));
-    f3.style.opacity=ease(seg(p,0.52,0.76));
-    glow.style.opacity=ease(seg(p,0.78,1))*0.9;
-    var step=p<0.10?0:p<0.42?1:p<0.74?2:3;
+    f2.style.opacity=ease(seg(p,0.14,0.30));
+    f3.style.opacity=ease(seg(p,0.34,0.50));
+    f4.style.opacity=ease(seg(p,0.54,0.70));
+    f5.style.opacity=ease(seg(p,0.74,0.90));
+    glow.style.opacity=ease(seg(p,0.40,0.52))*0.8;
+    var step=p<0.08?0:p<0.30?1:p<0.50?2:p<0.70?3:p<0.90?4:5;
     caps.forEach(function(c){c.classList.toggle('on',+c.dataset.step===step);});
     bars.forEach(function(b,i){b.classList.toggle('on',i<step);});
   }
 
-  if(reduce){f2.style.opacity=1;f3.style.opacity=1;glow.style.opacity=.8;caps[2].classList.add('on');return;}
+  if(reduce){f2.style.opacity=1;f3.style.opacity=1;f4.style.opacity=1;f5.style.opacity=1;glow.style.opacity=.8;caps[4].classList.add('on');return;}
 
   var ticking=false;
   function onScroll(){
