@@ -46,6 +46,9 @@ h1,h2,h3{font-family:var(--font-serif);font-weight:400;line-height:1.05;letter-s
 /* NAV */
 .nav{position:fixed;inset:0 0 auto 0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:18px var(--gutter);color:#1f1a16;transition:color .4s var(--ease-out)}
 .nav.on-dark{color:#efe9e1}
+.nav::before{content:"";position:absolute;inset:0;background:rgba(239,233,225,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);opacity:0;transition:opacity .4s var(--ease-out);z-index:-1;border-bottom:1px solid rgba(31,26,22,.08)}
+.nav.scrolled::before{opacity:1}
+.nav.on-dark::before{background:rgba(31,26,22,.86);border-bottom-color:rgba(239,233,225,.1)}
 .nav .brand{font-family:var(--font-serif);font-size:22px;letter-spacing:.32em;text-decoration:none;line-height:1}
 .nav .brand small{display:block;font-family:var(--font-sans);font-size:9px;letter-spacing:.3em;opacity:.75;margin-top:4px}
 .nav ul{display:flex;gap:34px;list-style:none}
@@ -325,8 +328,10 @@ footer{padding:40px var(--gutter);display:flex;justify-content:space-between;gap
   window.addEventListener('resize',onScroll);
   onScroll();
 
-  /* nav turns light over the dark Rooms band */
+  /* nav gets a backing once the room stage is behind us, and turns light over the dark Rooms band */
   var nav=document.querySelector('.nav'), rooms=document.getElementById('rooms');
+  function navBg(){nav.classList.toggle('scrolled',window.scrollY>stage.offsetHeight-window.innerHeight*0.6);}
+  window.addEventListener('scroll',navBg,{passive:true});navBg();
   new IntersectionObserver(function(es){nav.classList.toggle('on-dark',es[0].isIntersecting);},{rootMargin:'-40px 0px -92% 0px'}).observe(rooms);
 })();
 </script>
